@@ -1,0 +1,59 @@
+{
+  "_comment_meta": [
+    "FastFlag preset for Roblox performance. Written to ClientAppSettings.json in every",
+    "Versions\\version-XXXX\\ClientSettings\\ folder the script finds under Roblox Player",
+    "and Roblox Studio installs.",
+    "",
+    "IMPORTANT (late 2025): The PCClient (RobloxPlayerBeta.exe) only honors flags on an",
+    "internal ALLOWLIST since 2025-09-30. Flags outside it are silently ignored at runtime.",
+    "Studio still honors every flag. All flags below are historically-known-to-help entries;",
+    "some will do nothing on the Player and still matter for Studio work.",
+    "",
+    "Flag naming:",
+    "  FFlag*  = static bool          DFFlag* = dynamic bool",
+    "  FInt*   = static int           DFInt*  = dynamic int",
+    "  FString*= static string        DFString* = dynamic string"
+  ],
+
+  "_comment_quality": "Force a starting graphics quality level (1 = lowest / 10 = highest / 21 = Auto). Overrides the in-game slider on launch.",
+  "DFIntDebugFRMQualityLevelOverride": 1,
+  "DFIntDebugFRMQualityLevelOverrideHandler": 1,
+  "FIntRomarkStartWithGraphicQualityLevel": 1,
+
+  "_comment_renderer": "Pick which graphics backend the client uses. Only one of these should be true. D3D11 is the default on Windows; Vulkan is faster on many AMD GPUs; D3D10 is a fallback for very old machines.",
+  "FFlagDebugGraphicsPreferD3D11": true,
+  "FFlagDebugGraphicsDisableDirect3D11": false,
+  "FFlagDebugGraphicsPreferVulkan": false,
+  "FFlagDebugGraphicsPreferOpenGL": false,
+  "FFlagDebugGraphicsDisableMetal": false,
+
+  "_comment_fps": "Target FPS the task scheduler aims at. Works with the native in-game 'Maximum Frame Rate' slider.",
+  "DFIntTaskSchedulerTargetFps": 240,
+
+  "_comment_textures": "Downgrade textures across the board — biggest VRAM / bandwidth win on low-end GPUs.",
+  "DFFlagTextureQualityOverrideEnabled": true,
+  "DFIntTextureQualityOverride": 0,
+
+  "_comment_terrain": "Smaller terrain chunks = less mesh work per frame (at the cost of more draw calls).",
+  "FIntTerrainArraySliceSize": 4,
+
+  "_comment_telemetry_and_misc": "Skip per-frame telemetry counters & similar background work. Small but free wins.",
+  "FFlagDebugDisableTelemetryEphemeralCounter": true,
+  "FFlagDebugDisableTelemetryV2Counter": true,
+  "FFlagDebugDisableTelemetryV2Event": true,
+  "FFlagDebugDisableTelemetryPoint": true,
+
+  "_comment_shadow_quality": "Trim shadow work. Set false if you want pretty shadows back.",
+  "DFFlagEnableShadowmapHillChecks": false,
+
+  "_comment_mesh_and_lod": "Eagerly drop distant mesh detail. Trades visual pop-in for CPU time.",
+  "DFIntRenderingThrottleDelayInMS": 100,
+  "DFIntMaxFrameBufferSize": 4,
+
+  "_comment_memory": "Stop the client from pre-loading every font it ships with on startup.",
+  "FFlagPreloadAllFonts": false,
+  "FFlagPreloadMinimalFonts": true,
+
+  "_comment_sound": "Lower audio-mix overhead a touch on weak CPUs. Set back to defaults if you notice audio glitches.",
+  "FIntDefaultMeshPartUltraFidelityTargetFrameRate": 15
+}
